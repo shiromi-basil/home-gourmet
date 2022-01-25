@@ -18,7 +18,7 @@
     <div data-role="page" id="Home">
         <div id="hg-header" data-role="header" data-position="fixed">
             <div class="hg-logo-div">
-                <a id="hg-icon-btn-back" href="./orders.html" target="_self" data-transition="slide" class="ui-btn"
+                <a id="hg-icon-btn-back" data-rel="back" target="_self" data-transition="slide" class="ui-btn"
                     data-direction="reverse"><i data-feather="chevron-left"></i></a>
                 <a class="hg-button" id="logo-btn" href="./index.html" target="_self" class="ui-btn"><img
                         src="./assets/images/Logo.png" height="62.56px"></a>
@@ -31,13 +31,13 @@
             </div>
         </div>
 
-        <img class="hg-order-banner" src="./assets/images/hg-view-order-1.png">
+        <img class="hg-order-banner" src="./assets/images/cake-factory/hg-restaurant.jpg">
         <div role="main" id="hg-main">
             <div class="heading-row">
                 <h2 class="hg-main-heading inline">Your Order</h2>
                 <div class="hg-order-completed-right">Completed</div>
                 <div>
-                    <h2 class="hg-view-order-heading2 inline">Hometown Bakers</h2>
+                    <h2 class="hg-view-order-heading2 inline">Cake Factory</h2>
                 </div>
             </div>
             <div class="row">
@@ -50,7 +50,7 @@
             </div>
             <div class="row">
                 <div class="hg-view-order-main-text inline">Delivery location</div>
-                <div class="hg-view-order-text right">30A, Horton Avenue. Dulwich</div>
+                <div class="hg-view-order-text right">30A Horton Avenue. Dulwich</div>
             </div>
             <div class="row">
                 <div class="hg-view-order-main-text inline">Payment method</div>
@@ -59,21 +59,21 @@
             <div class="row">
                 <div class="hg-view-order-main-text inline">Order summary</div>
                 <div>
-                    <div class="hg-view-order-text inline">Chocolate chip cookies</div>
-                    <div class="hg-view-order-text right">1 x LKR 500.00</div>
+                    <div class="hg-view-order-text inline">Black Forest Cake</div>
+                    <div class="hg-view-order-text right">1 x LKR 1200.00</div>
                 </div>
                 <div>
-                    <div class="hg-view-order-text inline">Garlic bread</div>
-                    <div class="hg-view-order-text right">1 x LKR 200.00</div>
+                    <div class="hg-view-order-text inline">Cupcake Assortment</div>
+                    <div class="hg-view-order-text right">1 x LKR 800.00</div>
                 </div>
                 <div>
-                    <div class="hg-view-order-text inline">Muffins</div>
-                    <div class="hg-view-order-text right">5 x LKR 50.00</div>
+                    <div class="hg-view-order-text inline">Halwa</div>
+                    <div class="hg-view-order-text right">2 x LKR 100.00</div>
                 </div>
             </div>
             <div class="row">
                 <div class="hg-view-order-main-text inline">Item Total</div>
-                <div class="hg-view-order-amount right">LKR 950.00</div>
+                <div class="hg-view-order-amount right">LKR 2200.00</div>
             </div>
             <div class="row">
                 <div class="hg-view-order-main-text inline">Discount</div>
@@ -82,12 +82,12 @@
 
             <div class="row">
                 <div class="hg-view-order-main-text inline">Delivery</div>
-                <div class="hg-view-order-amount right">LKR 150.00</div>
+                <div class="hg-view-order-amount right">LKR 200.00</div>
             </div>
 
             <div class="row-total">
                 <div class="hg-view-order-main-text-total inline ">Total Cost</div>
-                <div class="hg-view-order-total right">LKR 1,100.00</div>
+                <div class="hg-view-order-total right">LKR 2,400.00</div>
             </div>
         </div>
 
@@ -130,8 +130,7 @@
                 <a class="hg-button" id="logo-btn" href="./index.html" target="_self" class="ui-btn">
                     <img src="./assets/images/Logo.png" height="62.56px"></a>
                 <a id="hg-icon-btn-right-close" href="#Home" data-transition="slide" class="ui-btn"
-                    data-direction="reverse">
-                    <i data-feather="x"></i></a>
+                    data-direction="reverse"><i data-feather="x"></i></a>
             </div>
         </div>
 
@@ -144,7 +143,7 @@
                 <a href="./orders.html" target="_self" class="ui-btn" id="hg-menu-btn">Orders</a>
                 <a href="#" class="ui-btn" id="hg-menu-btn">Favorites</a>
                 <a href="#" target="_self" class="ui-btn" id="hg-menu-btn">QR Scanner</a>
-                <a href="./about-us.html" class="ui-btn" id="hg-menu-btn">About Us</a>
+                <a href="./about-us.html" target="_self" class="ui-btn" id="hg-menu-btn">About Us</a>
                 <a href="#" class="ui-btn" id="hg-menu-btn">Sign In</a>
             </div>
         </div>
@@ -166,7 +165,7 @@
                 <a href="#" class="ui-btn" id="hg-menu-btn">Bakery</a>
                 <a href="#" class="ui-btn" id="hg-menu-btn">Italian</a>
                 <a href="#" class="ui-btn" id="hg-menu-btn">Burgers</a>
-                <a href="./desserts.html" class="ui-btn" id="hg-menu-btn">Desserts</a>
+                <a href="./desserts.html" target="_self" class="ui-btn" id="hg-menu-btn">Desserts</a>
                 <a href="#" class="ui-btn" id="hg-menu-btn">Drinks</a>
             </div>
         </div>
@@ -175,67 +174,7 @@
 </body>
 
 <script>
-    feather.replace()
-
-    function accordion(section, heading, list) {
-        $(section).each(function () {
-            var act = 'active',
-                actClass = '.active',
-                that = $(this);
-
-            function tglH() {
-                that.find(list).slideToggle(250);
-            }
-
-            function open(click) {
-                $(click).toggleClass('plus minus');
-                tglH();
-                that.find(list).addClass(act);
-            }
-
-            function close(click) {
-                $(click).toggleClass('minus plus');
-                tglH();
-                that.find(list).removeClass(act);
-            }
-
-            if (that.find(list).length == 0) {
-                $(this).find(heading).removeClass('plus').addClass('no-sub');
-            } else {
-                $(this).find(heading).click(function (e) {
-                    e.preventDefault();
-                });
-            }
-
-            $(this).find(heading).click(function () {
-                if ($(this).hasClass('minus')) {
-                    // close this menu
-                    close(this);
-                    that.find(list).removeClass(act);
-                } else if ($(this).hasClass('plus')) {
-                    if ($(heading).hasClass('minus')) {
-                        $(heading).each(function () {
-                            if (!$(this).hasClass('no-sub')) {
-                                $(this).removeClass('minus').addClass('plus');
-                            }
-                        })
-                        $(section).each(function () {
-                            if ($(this).find(list).hasClass(act)) {
-                                $(actClass).slideToggle(250);
-                                $(this).find(list).removeClass(act);
-                            }
-                        });
-                        // open this menu
-                        open(this);
-                    } else if ($(this).hasClass('plus')) {
-                        // open this menu
-                        open(this);
-                    }
-                }
-            })
-        })
-    }
-    accordion('.nav-item', '.nav-item-inner-heading', '.nav-sub-list');
+    feather.replace();
 </script>
 
 </html>

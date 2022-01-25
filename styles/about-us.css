@@ -1,0 +1,98 @@
+.hg-video {
+    /* 90% of viewport vidth */
+    width: 90vw;
+    /* ratio = 9/16 * 90 = 50.625 */
+    height: 50.625vw;
+    background: pink;
+    max-height: 90vh;
+    /* 16/9 * 90 = 160 */
+    max-width: 160vh;
+    margin: 0 auto 4% auto;
+    border-radius: 10px;
+}
+
+.hg-video video {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #fdf7f2 !important;
+}
+
+.journey-div,
+.quality-div,
+.motto-div,
+.founders-div {
+    margin: 3% 5% 0 5%;
+    overflow: hidden;
+}
+
+.about-heading {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: x-large;
+    margin: 0;
+}
+
+.journey-description-text {
+    float: left;
+    padding-top: 2%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: #6E6E78;
+    font-size: 0.9em;
+}
+
+#quality-row,
+#founders-row {
+    margin: 0;
+}
+
+.quality-column {
+    float: left;
+    width: 30%;
+    margin-right: 3%;
+    margin-top: 1.5%;
+}
+
+.quality-img {
+    max-width: 100%;
+}
+
+.quality-heading {
+    font-family: 'Poppins', sans-serif;
+    font-size: medium;
+    font-weight: 400;
+    margin: 5% 0 0 0;
+}
+
+.quality-description,
+.founders-description {
+    font-family: 'Roboto', sans-serif;
+    color: #6E6E78;
+    font-size: small;
+    margin: 5% 0 0 0;
+}
+
+.motto-div {
+    background-color: #E9F3FF;
+}
+
+.motto-text {
+    padding: 2.5%;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #00567B;
+    font-size: large;
+    text-align: center;
+    font-weight: 500;
+}
+
+.founders-column {
+    float: left;
+    width: 45%;
+    margin-right: 3.5%;
+}
+
+.founders-description {
+    text-align: justify;
+}

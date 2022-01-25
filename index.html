@@ -18,6 +18,12 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" />
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" />
+
+    <!-- PouchDB to read and store ratings -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pouchdb/7.2.2/pouchdb.min.js"
+        integrity="sha512-2Uc5uGzoGNFBmgURVIs1QZagEEt0rgJrSEcAXwP6c5EA6xGEyTQ1iViZO+CAR804xTHiAMIKFq+rxlJpurDZfQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="js/ratings.js"></script>
 </head>
 
 <body>
@@ -56,13 +62,14 @@
                 </div>
             </div>
 
+            <!-- Carousel -->
             <div class="page-slider">
-                <img src="assets/images/Promo1.png">
-                <img src="assets/images/Promo2.png">
-                <img src="assets/images/Promo1.png">
+                <img src="assets/images/home/promo-1.png">
+                <img src="assets/images/home/promo-2.png">
+                <img src="assets/images/home/promo-1.png">
             </div>
 
-            <h2 class="hg-main-heading">Popular Categories</h2>
+            <h2 class="hg-main-heading-text">Popular Categories</h2>
 
             <div class="hg-popular-categories-div">
                 <div class="hg-popular-categories-sub-div">
@@ -75,7 +82,6 @@
                         <p class="hg-main-text">Burgers</p>
                     </div>
                 </div>
-
                 <div class="hg-popular-categories-sub-div">
                     <a href="#" target="_self" class="ui-btn" id="hg-image-btn">
                         <div class="image-cropper-circle">
@@ -86,7 +92,6 @@
                         <p class="hg-main-text">Bakery</p>
                     </div>
                 </div>
-
                 <div class="hg-popular-categories-sub-div">
                     <a href="#" target="_self" class="ui-btn" id="hg-image-btn">
                         <div class="image-cropper-circle">
@@ -97,7 +102,6 @@
                         <p class="hg-main-text">Italian</p>
                     </div>
                 </div>
-
                 <div class="hg-popular-categories-sub-div">
                     <a href="#" target="_self" class="ui-btn" id="hg-image-btn">
                         <div class="image-cropper-circle">
@@ -108,7 +112,6 @@
                         <p class="hg-main-text">Chinese</p>
                     </div>
                 </div>
-
                 <div class="hg-popular-categories-sub-div">
                     <a href="./desserts.html" target="_self" class="ui-btn" id="hg-image-btn">
                         <div class="image-cropper-circle">
@@ -119,7 +122,6 @@
                         <p class="hg-main-text">Desserts</p>
                     </div>
                 </div>
-
                 <div class="hg-popular-categories-sub-div">
                     <a href="#" target="_self" class="ui-btn" id="hg-image-btn">
                         <div class="image-cropper-circle">
@@ -134,7 +136,7 @@
 
             <div class="hg-content-div">
                 <div class="hg-content-image-div">
-                    <img src="./assets/images/hg-content-1.png" class="hg-content-image" />
+                    <img src="./assets/images/home/hg-content-1.png" class="hg-content-image" />
                 </div>
                 <div class="hg-content-text-div">
                     <div class="hg-content-text-heading">Who we are</div>
@@ -144,12 +146,14 @@
                     </a>
                 </div>
                 <div class="hg-content-image-div">
-                    <img src="./assets/images/hg-content-2.png" class="hg-content-image" />
+                    <img src="./assets/images/home/hg-content-2.png" class="hg-content-image" />
                 </div>
                 <div class="hg-content-text-div">
                     <div class="hg-content-text-heading">Sweet deals</div>
                     <div class="hg-content-text-body">Our ongoing promotions.</div>
-                    <div class="hg-content-text-link">Explore deals</div>
+                    <a href="#" target="_self">
+                        <div class="hg-content-text-link">Explore deals</div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -193,8 +197,7 @@
                 <a class="hg-button" id="logo-btn" href="./index.html" target="_self" class="ui-btn">
                     <img src="./assets/images/Logo.png" height="62.56px"></a>
                 <a id="hg-icon-btn-right-close" href="#Home" data-transition="slide" class="ui-btn"
-                    data-direction="reverse">
-                    <i data-feather="x"></i></a>
+                    data-direction="reverse"><i data-feather="x"></i></a>
             </div>
         </div>
 
@@ -207,7 +210,7 @@
                 <a href="./orders.html" target="_self" class="ui-btn" id="hg-menu-btn">Orders</a>
                 <a href="#" class="ui-btn" id="hg-menu-btn">Favorites</a>
                 <a href="#" target="_self" class="ui-btn" id="hg-menu-btn">QR Scanner</a>
-                <a href="./about-us.html" class="ui-btn" id="hg-menu-btn">About Us</a>
+                <a href="./about-us.html" target="_self" class="ui-btn" id="hg-menu-btn">About Us</a>
                 <a href="#" class="ui-btn" id="hg-menu-btn">Sign In</a>
             </div>
         </div>
@@ -229,7 +232,7 @@
                 <a href="#" class="ui-btn" id="hg-menu-btn">Bakery</a>
                 <a href="#" class="ui-btn" id="hg-menu-btn">Italian</a>
                 <a href="#" class="ui-btn" id="hg-menu-btn">Burgers</a>
-                <a href="./desserts.html" class="ui-btn" id="hg-menu-btn">Desserts</a>
+                <a href="./desserts.html" target="_self" class="ui-btn" id="hg-menu-btn">Desserts</a>
                 <a href="#" class="ui-btn" id="hg-menu-btn">Drinks</a>
             </div>
         </div>
@@ -248,66 +251,7 @@
 </body>
 
 <script>
-    feather.replace()
-
-    function accordion(section, heading, list) {
-        $(section).each(function () {
-            var act = 'active',
-                actClass = '.active',
-                that = $(this);
-
-            function tglH() {
-                that.find(list).slideToggle(250);
-            }
-
-            function open(click) {
-                $(click).toggleClass('plus minus');
-                tglH();
-                that.find(list).addClass(act);
-            }
-
-            function close(click) {
-                $(click).toggleClass('minus plus');
-                tglH();
-                that.find(list).removeClass(act);
-            }
-
-            if (that.find(list).length == 0) {
-                $(this).find(heading).removeClass('plus').addClass('no-sub');
-            } else {
-                $(this).find(heading).click(function (e) {
-                    e.preventDefault();
-                });
-            }
-
-            $(this).find(heading).click(function () {
-                if ($(this).hasClass('minus')) {
-                    // close this menu
-                    close(this);
-                    that.find(list).removeClass(act);
-                } else if ($(this).hasClass('plus')) {
-                    if ($(heading).hasClass('minus')) {
-                        $(heading).each(function () {
-                            if (!$(this).hasClass('no-sub')) {
-                                $(this).removeClass('minus').addClass('plus');
-                            }
-                        })
-                        $(section).each(function () {
-                            if ($(this).find(list).hasClass(act)) {
-                                $(actClass).slideToggle(250);
-                                $(this).find(list).removeClass(act);
-                            }
-                        });
-                        // open this menu
-                    } else if ($(this).hasClass('plus')) {
-                        // open this menu
-                        open(this);
-                    }
-                }
-            })
-        })
-    }
-    accordion('.nav-item', '.nav-item-inner-heading', '.nav-sub-list');
+    feather.replace();
 </script>
 
 </html>

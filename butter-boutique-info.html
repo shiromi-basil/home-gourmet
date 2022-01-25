@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="height=device-height, initial-scale=1">
+    <title>Home Gourmet</title>
+
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+    <link rel="stylesheet" href="./styles/home.css">
+    <link rel="stylesheet" href="./styles/restaurant-info.css">
+
+    <!-- PouchDB to read and store ratings -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pouchdb/7.2.2/pouchdb.min.js"
+        integrity="sha512-2Uc5uGzoGNFBmgURVIs1QZagEEt0rgJrSEcAXwP6c5EA6xGEyTQ1iViZO+CAR804xTHiAMIKFq+rxlJpurDZfQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script id="restaurant-id" data-name="3" src="js/ratings.js"></script>
+</head>
+
+<body>
+    <div data-role="page" id="Home">
+        <div id="hg-header" data-role="header" data-position="fixed">
+            <div class="hg-logo-div">
+                <a id="hg-icon-btn-back" data-rel="back" target="_self" data-transition="slide" class="ui-btn"
+                    data-direction="reverse"><i data-feather="chevron-left"></i></a>
+                <a class="hg-button" id="logo-btn" href="./index.html" target="_self" class="ui-btn"><img
+                        src="./assets/images/Logo.png" height="62.56px"></a>
+            </div>
+            <div class="hg-header-icon-div">
+                <a href="#Page2" class="ui-btn" id="hg-icon-btn"><i data-feather="user"></i></a>
+                <a href="#Page2" class="ui-btn" id="hg-icon-btn"><i data-feather="shopping-cart"></i></a>
+                <a href="#Menu" data-transition="slide" class="ui-btn" id="hg-icon-btn-right">
+                    <i data-feather="menu"></i></a>
+            </div>
+        </div>
+
+        <img class="hg-order-banner" src="./assets/images/butter-boutique/hg-restaurant.jpg">
+        <div role="main" id="hg-main">
+            <div class="heading-row">
+                <h2 class="hg-main-heading inline">Butter Boutique</h2>
+                <div class="restaurant-info-description">
+                    <p class="hg-info-text">Butter Boutique is one the newer members of the Home Gourmet. They offer the
+                        usual spread of dessert, cupcakes, etc but also, more interestingly, home made
+                        ice cream and popsicles.</p>
+                </div>
+            </div>
+            <div class="restaurant-details">
+                <div class="row restaurant-info-details">
+                    <div class="restaurant-details-column">
+                        <p class="restaurant-info-details-title">Rating</p>
+                    </div>
+                    <div class="restaurant-details-column">
+                        <i id="star1" class="star-icon" data-feather="star"></i>
+                        <i id="star2" class="star-icon" data-feather="star"></i>
+                        <i id="star3" class="star-icon" data-feather="star"></i>
+                        <i id="star4" class="star-icon" data-feather="star"></i>
+                        <i id="star5" class="star-icon" data-feather="star"></i>
+                        <p id="restaurant-info-rating" class="restaurant-info-details-body"></p>
+                    </div>
+                </div>
+                <div class="row restaurant-info-details">
+                    <div class="restaurant-details-column">
+                        <p class="restaurant-info-details-title">Delivery Time</p>
+                    </div>
+                    <div class="restaurant-details-column">
+                        <p class="restaurant-info-details-body">15 - 25 mins</p>
+                    </div>
+                </div>
+                <div class="row restaurant-info-details">
+                    <div class="restaurant-details-column">
+                        <p class="restaurant-info-details-title">Contact Number</p>
+                    </div>
+                    <div class="restaurant-details-column">
+                        <p class="restaurant-info-details-body">+94 112 690 028</p>
+                    </div>
+                </div>
+                <div class="row restaurant-info-details">
+                    <div class="restaurant-details-column">
+                        <p class="restaurant-info-details-title">Address</p>
+                    </div>
+                    <div class="restaurant-details-column">
+                        <p class="restaurant-info-details-body">70 Rosmead Pl, Colombo 00700</p>
+                    </div>
+                </div>
+                <div class="row restaurant-info-details">
+                    <div class="restaurant-details-column">
+                        <p class="restaurant-info-details-title">Location</p>
+                    </div>
+                </div>
+                <!-- Google Map -->
+                <div class="restaurant-map" id="map"></div>
+                <div class="row restaurant-info-details">
+                    <div class="restaurant-details-column">
+                        <p class="restaurant-info-details-title">Comments</p>
+                    </div>
+                    <div class="restaurant-details-column">
+                        <p class="restaurant-info-details-body">No comments currently available.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div id="hg-footer" data-role="footer">
+            <div class="row">
+                <div class="column" id="about-column">
+                    <div class="nav-item-inner">
+                        <p class="hg-footer-heading">About</p>
+                        <p class="hg-footer-text-body">Founded in 2020, Home Gourmet is the most widely used home-cooked
+                            food delivery app in Sri Lanka today.
+                            <a id="hg-footer-text-link" href="./about-us.html" target="_self"><u>Read more</u></a></p>
+                    </div>
+                </div>
+                <div class="column" id="contact-column">
+                    <p class="hg-footer-heading">Contact</p>
+                    <p class="hg-footer-text-body">Email : homegourmet@gmail.com</p>
+                    <p class="hg-footer-text-body">Mobile : (+94) 77 899 3645</p>
+                </div>
+                <div class="column" id="follow-us-column">
+                    <p class="hg-footer-heading">Follow us</p>
+                    <a href="#">
+                        <p class="hg-footer-text-body">Instagram </p>
+                        <p class="hg-footer-text-body">Facebook </p>
+                        <p class="hg-footer-text-body">Pinterest </p>
+                    </a>
+                </div>
+            </div>
+
+            <div id="hg-footer-links-div">
+                <a id="hg-footer-links">Terms and Conditions</a> . <a id="hg-footer-links">Privacy Statement</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Menu -->
+    <div data-role="page" id="Menu">
+        <div data-role="header" id="hg-header">
+            <div class="hg-menu-logo-div">
+                <a class="hg-button" id="logo-btn" href="./index.html" target="_self" class="ui-btn">
+                    <img src="./assets/images/Logo.png" height="62.56px"></a>
+                <a id="hg-icon-btn-right-close" href="#Home" data-transition="slide" class="ui-btn"
+                    data-direction="reverse"><i data-feather="x"></i></a>
+            </div>
+        </div>
+
+        <div role="main" class="ui-content" id="hg-menu" data-transition="slide">
+            <div data-role="controlgroup" data-type="vertical">
+                <a href="#Menu2" data-transition="slide" class="ui-btn" id="hg-menu-btn">Categories
+                    <i id="hg-icon-chevron" data-feather="chevron-right"></i></a>
+                <a href="#" class="ui-btn" id="hg-menu-btn">Promotions</a>
+                <a href="#" class="ui-btn" id="hg-menu-btn">Rewards Center</a>
+                <a href="./orders.html" target="_self" class="ui-btn" id="hg-menu-btn">Orders</a>
+                <a href="#" class="ui-btn" id="hg-menu-btn">Favorites</a>
+                <a href="#" target="_self" class="ui-btn" id="hg-menu-btn">QR Scanner</a>
+                <a href="./about-us.html" target="_self" class="ui-btn" id="hg-menu-btn">About Us</a>
+                <a href="#" class="ui-btn" id="hg-menu-btn">Sign In</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Categories Menu -->
+    <div data-role="page" id="Menu2">
+        <div data-role="header" id="hg-header">
+            <div id="hg-menu2-heading-div">
+                <h2 id="hg-menu2-heading">Categories</h2>
+                <a id="hg-icon-btn-right-close-menu2" href="#Menu" data-transition="slide" class="ui-btn"
+                    data-direction="reverse"><i data-feather="chevron-left"></i></a>
+            </div>
+        </div>
+
+        <div role="main" class="ui-content" id="hg-menu" data-transition="slide">
+            <div data-role="controlgroup" data-type="vertical">
+                <a href="#" class="ui-btn" id="hg-menu-btn">Chinese</a>
+                <a href="#" class="ui-btn" id="hg-menu-btn">Bakery</a>
+                <a href="#" class="ui-btn" id="hg-menu-btn">Italian</a>
+                <a href="#" class="ui-btn" id="hg-menu-btn">Burgers</a>
+                <a href="./desserts.html" target="_self" class="ui-btn" id="hg-menu-btn">Desserts</a>
+                <a href="#" class="ui-btn" id="hg-menu-btn">Drinks</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    // Google Map JavaScript
+    function initMap() {
+        const coordinates = {
+            lat: 6.914480787453936,
+            lng: 79.87003922162276
+        };
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 15,
+            center: coordinates,
+        });
+        const marker = new google.maps.Marker({
+            position: coordinates,
+            map: map,
+            title: "Butter Boutique"
+        });
+    }
+
+    feather.replace();
+</script>
+
+<!-- Google Maps JavaScript API -->
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdk6iTX25HHciWJvEESB-yKLiQVttexEw&callback=initMap">
+</script>
+
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="height=device-height, initial-scale=1">
+    <title>Home Gourmet</title>
+
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+    <link rel="stylesheet" href="./styles/home.css">
+    <link rel="stylesheet" href="./styles/restaurant.css">
+
+    <!-- PouchDB to read and store ratings -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pouchdb/7.2.2/pouchdb.min.js"
+        integrity="sha512-2Uc5uGzoGNFBmgURVIs1QZagEEt0rgJrSEcAXwP6c5EA6xGEyTQ1iViZO+CAR804xTHiAMIKFq+rxlJpurDZfQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script id="restaurant-id" data-name="3" src="js/ratings.js"></script>
+</head>
+
+<body>
+    <div data-role="page" id="Home">
+        <div id="hg-header" data-role="header" data-position="fixed">
+            <div class="hg-logo-div">
+                <a id="hg-icon-btn-back" data-rel="back" target="_self" data-transition="slide" class="ui-btn"
+                    data-direction="reverse"><i data-feather="chevron-left"></i></a>
+                <a class="hg-button" id="logo-btn" href="./index.html" target="_self" class="ui-btn"><img
+                        src="./assets/images/Logo.png" height="62.56px"></a>
+            </div>
+            <div class="hg-header-icon-div">
+                <a href="#Page2" class="ui-btn" id="hg-icon-btn"><i data-feather="user"></i></a>
+                <a href="#Page2" class="ui-btn" id="hg-icon-btn"><i data-feather="shopping-cart"></i></a>
+                <a href="#Menu" data-transition="slide" class="ui-btn" id="hg-icon-btn-right">
+                    <i data-feather="menu"></i></a>
+            </div>
+        </div>
+
+        <img class="hg-order-banner" src="./assets/images/butter-boutique/hg-restaurant.jpg">
+        <div role="main" id="hg-main">
+            <div class="heading-row">
+                <h2 class="hg-main-heading inline">Butter Boutique</h2>
+                <a href="./butter-boutique-info.html" target="_self">
+                    <div id="restaurant-info-div">
+                        <div class="restaurant-info-description">
+                            <div id="rating">
+                                <i class="info-icon-star" data-feather="star"></i>
+                                <p id="restaurant-rating" class="hg-info-text-body"></p>
+                            </div>
+                            <div id="duration">
+                                <i class="info-icon-clock" data-feather="clock"></i>
+                                <p class="hg-info-text-body">15 - 25 mins</p>
+                            </div><br />
+                            <p class="hg-info-text">Tap for more restaurant information and reviews.</p>
+                        </div>
+                        <i class="restaurant-info-link" data-feather="chevron-right"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="hg-restaurant-search-div">
+                <input type="search" name="search" id="hg-restaurant-search" value=""
+                    placeholder="Search for a product">
+            </div>
+            <div class="sub-menu">
+                <a href="#category-cakes" target="_self">
+                    <div class="sub-category">
+                        <p class="sub-category-text">Cakes</p>
+                    </div>
+                </a>
+                <a href="#category-cupcakes" target="_self">
+                    <div class="sub-category">
+                        <p class="sub-category-text">Cupcakes</p>
+                    </div>
+                </a>
+                <a href="#category-shorteats" target="_self">
+                    <div class="sub-category">
+                        <p class="sub-category-text">Short Eats</p>
+                    </div>
+                </a>
+                <a href="#category-icecream" target="_self">
+                    <div class="sub-category">
+                        <p class="sub-category-text">Ice Cream</p>
+                    </div>
+                </a>
+                <a href="#category-drinks" target="_self">
+                    <div class="sub-category">
+                        <p class="sub-category-text">Drinks</p>
+                    </div>
+                </a>
+            </div>
+            <div class="restaurant-categories">
+                <div class="category" id="category-cakes">
+                    <h2 class="category-header">Cakes</h2>
+                    <div class="row" id="food-item-row">
+                        <div class="food-item-column">
+                            <div class="food-item-img">
+                                <img class="hg-food-item" src="./assets/images/butter-boutique/cake-1.png">
+                            </div>
+                            <div class="food-item-text">
+                                <p class="food-item-text-header">Black Forest Cake</p>
+                                <p class="food-item-text-body">Gooey black forest cake garnished with cherries and
+                                    cream.
+                                </p>
+                                <p class="food-item-text-price">LKR 1400.00</p>
+                            </div>
+                        </div>
+                        <div class="food-item-column">
+                            <div class="food-item-img">
+                                <img class="hg-food-item" src="./assets/images/butter-boutique/cake-2.png">
+                            </div>
+                            <div class="food-item-text">
+                                <p class="food-item-text-header">Chocolate Cake</p>
+                                <p class="food-item-text-body">Chocolate cake garnished with fruits.</p>
+                                <p class="food-item-text-price">LKR 1200.00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="food-item-row">
+                        <div class="food-item-column">
+                            <div class="food-item-img">
+                                <img class="hg-food-item" src="./assets/images/butter-boutique/cake-3.png">
+                            </div>
+                            <div class="food-item-text">
+                                <p class="food-item-text-header">Death by Chocolate</p>
+                                <p class="food-item-text-body">1kg of gooey death by chocolate cake.</p>
+                                <p class="food-item-text-price">LKR 1600.00</p>
+                            </div>
+                        </div>
+                        <div class="food-item-column">
+                            <div class="food-item-img">
+                                <img class="hg-food-item" src="./assets/images/butter-boutique/cake-4.png">
+                            </div>
+                            <div class="food-item-text">
+                                <p class="food-item-text-header">Chocolate Lava Cake</p>
+                                <p class="food-item-text-body">300g of chocolate lava cake.</p>
+                                <p class="food-item-text-price">LKR 500.00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="food-item-row">
+                        <div class="food-item-column">
+                            <div class="food-item-img">
+                                <img class="hg-food-item" src="./assets/images/butter-boutique/cake-5.png">
+                            </div>
+                            <div class="food-item-text">
+                                <p class="food-item-text-header">Vanila Cake</p>
+                                <p class="food-item-text-body">1kg vanilla cake garnished with fruits.</p>
+                                <p class="food-item-text-price">LKR 1000.00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="category" id="category-cupcakes">
+                    <h2 class="category-header">Cupcakes</h2>
+                    <div class="row" id="food-item-row">
+                        <div class="food-item-column">
+                            <div class="food-item-img">
+                                <img class="hg-food-item" src="./assets/images/butter-boutique/cupcake-1.png">
+                            </div>
+                            <div class="food-item-text">
+                                <p class="food-item-text-header">Vanilla Cupcake</p>
+                                <p class="food-item-text-body">Vanilla cupcake with pink icing.</p>
+                                <p class="food-item-text-price">LKR 120.00</p>
+                            </div>
+                        </div>
+                        <div class="food-item-column">
+                            <div class="food-item-img">
+                                <img class="hg-food-item" src="./assets/images/butter-boutique/cupcake-2.png">
+                            </div>
+                            <div class="food-item-text">
+                                <p class="food-item-text-header">Rainbow Cupcake</p>
+                                <p class="food-item-text-body">Rainbow cupcake with white icing.</p>
+                                <p class="food-item-text-price">LKR 120.00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="food-item-row">
+                        <div class="food-item-column">
+                            <div class="food-item-img">
+                                <img class="hg-food-item" src="./assets/images/butter-boutique/cupcake-3.png">
+                            </div>
+                            <div class="food-item-text">
+                                <p class="food-item-text-header">Brownie Cupcake</p>
+                                <p class="food-item-text-body">Brownie cupcakes with chocolate icing.</p>
+                                <p class="food-item-text-price">LKR 150.00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="category" id="category-shorteats">
+                    <h2 class="category-header">Short Eats</h2>
+                    <div class="row" id="food-item-row">
+                        <div class="food-item-column">
+                            <div class="food-item-img">
+                                <img class="hg-food-item" src="./assets/images/butter-boutique/eats-1.png">
+                            </div>
+                            <div class="food-item-text">
+                                <p class="food-item-text-header">Cream Puff</p>
+                                <p class="food-item-text-body">Delicious cream puff.</p>
+                                <p class="food-item-text-price">LKR 80.00</p>
+                            </div>
+                        </div>
+                        <div class="food-item-column">
+                            <div class="food-item-img">
+                                <img class="hg-food-item" src="./assets/images/butter-boutique/eats-2.png">
+                            </div>
+                            <div class="food-item-text">
+                                <p class="food-item-text-header">Apple Pie</p>
+                                <p class="food-item-text-body">Medium sized apple pie.</p>
+                                <p class="food-item-text-price">LKR 250.00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="category" id="category-icecream">
+                    <h2 class="category-header">Ice Cream</h2>
+                    <div class="row" id="food-item-row">
+                        <div class="food-item-column">
+                            <div class="food-item-img">
+                                <img class="hg-food-item" src="./assets/images/butter-boutique/icecream-1.png">
+                            </div>
+                            <div class="food-item-text">
+                                <p class="food-item-text-header">Ice Cream Trio</p>
+                                <p class="food-item-text-body">Three ice creams flavours of your choice.</p>
+                                <p class="food-item-text-price">LKR 150.00</p>
+                            </div>
+                        </div>
+                        <div class="food-item-column">
+                            <div class="food-item-img">
+                                <img class="hg-food-item" src="./assets/images/butter-boutique/icecream-2.png">
+                            </div>
+                            <div class="food-item-text">
+                                <p class="food-item-text-header">Vanilla Ice Cream</p>
+                                <p class="food-item-text-body">One cup of vanilla ice cream.</p>
+                                <p class="food-item-text-price">LKR 80.00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="food-item-row">
+                        <div class="food-item-column">
+                            <div class="food-item-img">
+                                <img class="hg-food-item" src="./assets/images/butter-boutique/icecream-3.png">
+                            </div>
+                            <div class="food-item-text">
+                                <p class="food-item-text-header">Strawberry Ice Cream</p>
+                                <p class="food-item-text-body">One cup of strawberry ice cream.</p>
+                                <p class="food-item-text-price">LKR 90.00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="category" id="category-drinks">
+                    <h2 class="category-header">Drinks</h2>
+                    <div class="row" id="food-item-row">
+                        <div class="food-item-column">
+                            <div class="food-item-img">
+                                <img class="hg-food-item" src="./assets/images/butter-boutique/drinks-1.png">
+                            </div>
+                            <div class="food-item-text">
+                                <p class="food-item-text-header">Orange Juice</p>
+                                <p class="food-item-text-body">200ml of orange juice.</p>
+                                <p class="food-item-text-price">LKR 200.00</p>
+                            </div>
+                        </div>
+                        <div class="food-item-column">
+                            <div class="food-item-img">
+                                <img class="hg-food-item" src="./assets/images/butter-boutique/drinks-2.png">
+                            </div>
+                            <div class="food-item-text">
+                                <p class="food-item-text-header">Papaw Juice</p>
+                                <p class="food-item-text-body">200ml of papaw juice.</p>
+                                <p class="food-item-text-price">LKR 200.00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="food-item-row">
+                        <div class="food-item-column">
+                            <div class="food-item-img">
+                                <img class="hg-food-item" src="./assets/images/butter-boutique/drinks-3.png">
+                            </div>
+                            <div class="food-item-text">
+                                <p class="food-item-text-header">Mango Juice</p>
+                                <p class="food-item-text-body">200ml of mango juice.</p>
+                                <p class="food-item-text-price">LKR 200.00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div id="hg-footer" data-role="footer">
+            <div class="row">
+                <div class="column" id="about-column">
+                    <div class="nav-item-inner">
+                        <p class="hg-footer-heading">About</p>
+                        <p class="hg-footer-text-body">Founded in 2020, Home Gourmet is the most widely used home-cooked
+                            food delivery app in Sri Lanka today.
+                            <a id="hg-footer-text-link" href="./about-us.html" target="_self"><u>Read more</u></a></p>
+                    </div>
+                </div>
+                <div class="column" id="contact-column">
+                    <p class="hg-footer-heading">Contact</p>
+                    <p class="hg-footer-text-body">Email : homegourmet@gmail.com</p>
+                    <p class="hg-footer-text-body">Mobile : (+94) 77 899 3645</p>
+                </div>
+                <div class="column" id="follow-us-column">
+                    <p class="hg-footer-heading">Follow us</p>
+                    <a href="#">
+                        <p class="hg-footer-text-body">Instagram </p>
+                        <p class="hg-footer-text-body">Facebook </p>
+                        <p class="hg-footer-text-body">Pinterest </p>
+                    </a>
+                </div>
+            </div>
+
+            <div id="hg-footer-links-div">
+                <a id="hg-footer-links">Terms and Conditions</a> . <a id="hg-footer-links">Privacy Statement</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Menu -->
+    <div data-role="page" id="Menu">
+        <div data-role="header" id="hg-header">
+            <div class="hg-menu-logo-div">
+                <a class="hg-button" id="logo-btn" href="./index.html" target="_self" class="ui-btn">
+                    <img src="./assets/images/Logo.png" height="62.56px"></a>
+                <a id="hg-icon-btn-right-close" href="#Home" data-transition="slide" class="ui-btn"
+                    data-direction="reverse"><i data-feather="x"></i></a>
+            </div>
+        </div>
+
+        <div role="main" class="ui-content" id="hg-menu" data-transition="slide">
+            <div data-role="controlgroup" data-type="vertical">
+                <a href="#Menu2" data-transition="slide" class="ui-btn" id="hg-menu-btn">Categories
+                    <i id="hg-icon-chevron" data-feather="chevron-right"></i></a>
+                <a href="#" class="ui-btn" id="hg-menu-btn">Promotions</a>
+                <a href="#" class="ui-btn" id="hg-menu-btn">Rewards Center</a>
+                <a href="./orders.html" target="_self" class="ui-btn" id="hg-menu-btn">Orders</a>
+                <a href="#" class="ui-btn" id="hg-menu-btn">Favorites</a>
+                <a href="#" target="_self" class="ui-btn" id="hg-menu-btn">QR Scanner</a>
+                <a href="./about-us.html" target="_self" class="ui-btn" id="hg-menu-btn">About Us</a>
+                <a href="#" class="ui-btn" id="hg-menu-btn">Sign In</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Categories Menu -->
+    <div data-role="page" id="Menu2">
+        <div data-role="header" id="hg-header">
+            <div id="hg-menu2-heading-div">
+                <h2 id="hg-menu2-heading">Categories</h2>
+                <a id="hg-icon-btn-right-close-menu2" href="#Menu" data-transition="slide" class="ui-btn"
+                    data-direction="reverse"><i data-feather="chevron-left"></i></a>
+            </div>
+        </div>
+
+        <div role="main" class="ui-content" id="hg-menu" data-transition="slide">
+            <div data-role="controlgroup" data-type="vertical">
+                <a href="#" class="ui-btn" id="hg-menu-btn">Chinese</a>
+                <a href="#" class="ui-btn" id="hg-menu-btn">Bakery</a>
+                <a href="#" class="ui-btn" id="hg-menu-btn">Italian</a>
+                <a href="#" class="ui-btn" id="hg-menu-btn">Burgers</a>
+                <a href="./desserts.html" target="_self" class="ui-btn" id="hg-menu-btn">Desserts</a>
+                <a href="#" class="ui-btn" id="hg-menu-btn">Drinks</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    feather.replace();
+</script>
+
+</html>

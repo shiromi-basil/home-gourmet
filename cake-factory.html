@@ -12,13 +12,20 @@
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 
     <link rel="stylesheet" href="./styles/home.css">
+    <link rel="stylesheet" href="./styles/restaurant.css">
+
+    <!-- PouchDB to read and store ratings -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pouchdb/7.2.2/pouchdb.min.js"
+        integrity="sha512-2Uc5uGzoGNFBmgURVIs1QZagEEt0rgJrSEcAXwP6c5EA6xGEyTQ1iViZO+CAR804xTHiAMIKFq+rxlJpurDZfQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script id="restaurant-id" data-name="1" src="js/ratings.js"></script>
 </head>
 
 <body>
     <div data-role="page" id="Home">
         <div id="hg-header" data-role="header" data-position="fixed">
             <div class="hg-logo-div">
-                <a id="hg-icon-btn-back" href="./orders.html" target="_self" data-transition="slide" class="ui-btn"
+                <a id="hg-icon-btn-back" data-rel="back" target="_self" data-transition="slide" class="ui-btn"
                     data-direction="reverse"><i data-feather="chevron-left"></i></a>
                 <a class="hg-button" id="logo-btn" href="./index.html" target="_self" class="ui-btn"><img
                         src="./assets/images/Logo.png" height="62.56px"></a>
@@ -31,16 +38,16 @@
             </div>
         </div>
 
-        <img class="hg-order-banner" src="./assets/images/hg-restaurant-1.jpg">
+        <img class="hg-order-banner" src="./assets/images/cake-factory/hg-restaurant.jpg">
         <div role="main" id="hg-main">
             <div class="heading-row">
                 <h2 class="hg-main-heading inline">Cake Factory</h2>
-                <a href="./restaurant-info.html" target="_self">
+                <a href="./cake-factory-info.html" target="_self">
                     <div id="restaurant-info-div">
-                        <div class="info-text">
+                        <div class="restaurant-info-description">
                             <div id="rating">
                                 <i class="info-icon-star" data-feather="star"></i>
-                                <p class="hg-info-text-body">4.8 (200+ ratings)</p>
+                                <p id="restaurant-rating" class="hg-info-text-body"></p>
                             </div>
                             <div id="duration">
                                 <i class="info-icon-clock" data-feather="clock"></i>
@@ -53,170 +60,175 @@
                 </a>
             </div>
             <div class="hg-restaurant-search-div">
-                <input type="search" name="search" id="hg-restaurant-search" value="" placeholder="Search for dish">
+                <input type="search" name="search" id="hg-restaurant-search" value=""
+                    placeholder="Search for a product">
             </div>
             <div class="sub-menu">
                 <a href="#category-cakes" target="_self">
-                    <div class="sub-category" id="category-link">
+                    <div class="sub-category">
                         <p class="sub-category-text">Cakes</p>
                     </div>
                 </a>
                 <a href="#category-cupcakes" target="_self">
-                    <div class="sub-category" id="category-link">
+                    <div class="sub-category">
                         <p class="sub-category-text">Cupcakes</p>
                     </div>
                 </a>
                 <a href="#category-sweets" target="_self">
-                    <div class="sub-category" id="category-link">
+                    <div class="sub-category">
                         <p class="sub-category-text">Sweets</p>
                     </div>
                 </a>
                 <a href="#category-drinks" target="_self">
-                    <div class="sub-category" id="category-link">
+                    <div class="sub-category">
                         <p class="sub-category-text">Drinks</p>
                     </div>
                 </a>
             </div>
-            <div class="category" id="category-cakes">
-                <h2 class="category-header">Cakes</h2>
-                <div class="row" id="food-item-row">
-                    <div class="food-item-column">
-                        <div class="food-item-img">
-                            <img class="hg-food-item" src="./assets/images/cake-factory/cake-1.png">
+            <div class="restaurant-categories">
+                <div class="category" id="category-cakes">
+                    <h2 class="category-header">Cakes</h2>
+                    <div class="row" id="food-item-row">
+                        <div class="food-item-column">
+                            <div class="food-item-img">
+                                <img class="hg-food-item" src="./assets/images/cake-factory/cake-1.png">
+                            </div>
+                            <div class="food-item-text">
+                                <p class="food-item-text-header">Black Forest Cake</p>
+                                <p class="food-item-text-body">Gooey black forest cake garnished with cherries and
+                                    cream.
+                                </p>
+                                <p class="food-item-text-price">LKR 1200.00</p>
+                            </div>
                         </div>
-                        <div class="food-item-text">
-                            <p class="food-item-text-header">Black Forest Cake</p>
-                            <p class="food-item-text-body">Goey chocolate cake garnished with cherries and cream.</p>
-                            <p class="food-item-text-price">LKR 1200.00</p>
-                        </div>
-                    </div>
-                    <div class="food-item-column">
-                        <div class="food-item-img">
-                            <img class="hg-food-item" src="./assets/images/cake-factory/cake-2.png">
-                        </div>
-                        <div class="food-item-text">
-                            <p class="food-item-text-header">Chocolate Cake</p>
-                            <p class="food-item-text-body">Chocolate cake garnished with fruits.</p>
-                            <p class="food-item-text-price">LKR 1000.00</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row" id="food-item-row">
-                    <div class="food-item-column">
-                        <div class="food-item-img">
-                            <img class="hg-food-item" src="./assets/images/cake-factory/cake-3.png">
-                        </div>
-                        <div class="food-item-text">
-                            <p class="food-item-text-header">Fruit Cake</p>
-                            <p class="food-item-text-body">1kg moist fruit cake.</p>
-                            <p class="food-item-text-price">LKR 1400.00</p>
+                        <div class="food-item-column">
+                            <div class="food-item-img">
+                                <img class="hg-food-item" src="./assets/images/cake-factory/cake-2.png">
+                            </div>
+                            <div class="food-item-text">
+                                <p class="food-item-text-header">Chocolate Cake</p>
+                                <p class="food-item-text-body">Chocolate cake garnished with fruits.</p>
+                                <p class="food-item-text-price">LKR 1000.00</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="food-item-column">
-                        <div class="food-item-img">
-                            <img class="hg-food-item" src="./assets/images/cake-factory/cake-4.png">
+                    <div class="row" id="food-item-row">
+                        <div class="food-item-column">
+                            <div class="food-item-img">
+                                <img class="hg-food-item" src="./assets/images/cake-factory/cake-3.png">
+                            </div>
+                            <div class="food-item-text">
+                                <p class="food-item-text-header">Fruit Cake</p>
+                                <p class="food-item-text-body">1kg moist fruit cake.</p>
+                                <p class="food-item-text-price">LKR 1400.00</p>
+                            </div>
                         </div>
-                        <div class="food-item-text">
-                            <p class="food-item-text-header">Christmas Cake</p>
-                            <p class="food-item-text-body">2kg cake filled with fruits and nuts.</p>
-                            <p class="food-item-text-price">LKR 2400.00</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="category" id="category-cupcakes">
-                <h2 class="category-header">Cupcakes</h2>
-                <div class="row" id="food-item-row">
-                    <div class="food-item-column">
-                        <div class="food-item-img">
-                            <img class="hg-food-item" src="./assets/images/cake-factory/cupcake-2.png">
-                        </div>
-                        <div class="food-item-text">
-                            <p class="food-item-text-header">Cupcake Assortment</p>
-                            <p class="food-item-text-body">An assortment of 6 cupcakes.</p>
-                            <p class="food-item-text-price">LKR 1200.00</p>
-                        </div>
-                    </div>
-                    <div class="food-item-column">
-                        <div class="food-item-img">
-                            <img class="hg-food-item" src="./assets/images/cake-factory/cupcake-1.png">
-                        </div>
-                        <div class="food-item-text">
-                            <p class="food-item-text-header">Macha Cupcake</p>
-                            <p class="food-item-text-body">Goey macha cupcake.</p>
-                            <p class="food-item-text-price">LKR 120.00</p>
+                        <div class="food-item-column">
+                            <div class="food-item-img">
+                                <img class="hg-food-item" src="./assets/images/cake-factory/cake-4.png">
+                            </div>
+                            <div class="food-item-text">
+                                <p class="food-item-text-header">Christmas Cake</p>
+                                <p class="food-item-text-body">2kg cake filled with fruits and nuts.</p>
+                                <p class="food-item-text-price">LKR 2400.00</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="category" id="category-sweets">
-                <h2 class="category-header">Sweets</h2>
-                <div class="row" id="food-item-row">
-                    <div class="food-item-column">
-                        <div class="food-item-img">
-                            <img class="hg-food-item" src="./assets/images/cake-factory/sweets-1.png">
+                <div class="category" id="category-cupcakes">
+                    <h2 class="category-header">Cupcakes</h2>
+                    <div class="row" id="food-item-row">
+                        <div class="food-item-column">
+                            <div class="food-item-img">
+                                <img class="hg-food-item" src="./assets/images/cake-factory/cupcake-1.png">
+                            </div>
+                            <div class="food-item-text">
+                                <p class="food-item-text-header">Cupcake Assortment</p>
+                                <p class="food-item-text-body">An assortment of 6 cupcakes.</p>
+                                <p class="food-item-text-price">LKR 800.00</p>
+                            </div>
                         </div>
-                        <div class="food-item-text">
-                            <p class="food-item-text-header">Sweet Assortment</p>
-                            <p class="food-item-text-body">An assortment of 9 sweets.</p>
-                            <p class="food-item-text-price">LKR 1500.00</p>
-                        </div>
-                    </div>
-                    <div class="food-item-column">
-                        <div class="food-item-img">
-                            <img class="hg-food-item" src="./assets/images/cake-factory/sweets-2.png">
-                        </div>
-                        <div class="food-item-text">
-                            <p class="food-item-text-header">Halwa</p>
-                            <p class="food-item-text-body">One piece of sweet halwa.</p>
-                            <p class="food-item-text-price">LKR 100.00</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="category" id="category-drinks">
-                <h2 class="category-header">Drinks</h2>
-                <div class="row" id="food-item-row">
-                    <div class="food-item-column">
-                        <div class="food-item-img">
-                            <img class="hg-food-item" src="./assets/images/cake-factory/drinks-1.png">
-                        </div>
-                        <div class="food-item-text">
-                            <p class="food-item-text-header">Strawberry Milkshake</p>
-                            <p class="food-item-text-body">250ml of strawberry milkshake.</p>
-                            <p class="food-item-text-price">LKR 300.00</p>
-                        </div>
-                    </div>
-                    <div class="food-item-column">
-                        <div class="food-item-img">
-                            <img class="hg-food-item" src="./assets/images/cake-factory/drinks-2.png">
-                        </div>
-                        <div class="food-item-text">
-                            <p class="food-item-text-header">Vanilla Milkshake</p>
-                            <p class="food-item-text-body">250ml of vanilla milkshake.</p>
-                            <p class="food-item-text-price">LKR 250.00</p>
+                        <div class="food-item-column">
+                            <div class="food-item-img">
+                                <img class="hg-food-item" src="./assets/images/cake-factory/cupcake-2.png">
+                            </div>
+                            <div class="food-item-text">
+                                <p class="food-item-text-header">Macha Cupcake</p>
+                                <p class="food-item-text-body">Gooey macha cupcake.</p>
+                                <p class="food-item-text-price">LKR 120.00</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="row" id="food-item-row">
-                    <div class="food-item-column">
-                        <div class="food-item-img">
-                            <img class="hg-food-item" src="./assets/images/cake-factory/drinks-3.png">
+                <div class="category" id="category-sweets">
+                    <h2 class="category-header">Sweets</h2>
+                    <div class="row" id="food-item-row">
+                        <div class="food-item-column">
+                            <div class="food-item-img">
+                                <img class="hg-food-item" src="./assets/images/cake-factory/sweets-1.png">
+                            </div>
+                            <div class="food-item-text">
+                                <p class="food-item-text-header">Sweet Assortment</p>
+                                <p class="food-item-text-body">An assortment of 9 sweets.</p>
+                                <p class="food-item-text-price">LKR 1500.00</p>
+                            </div>
                         </div>
-                        <div class="food-item-text">
-                            <p class="food-item-text-header">Chocolate Milkshake</p>
-                            <p class="food-item-text-body">250ml of chocolate milkshake.</p>
-                            <p class="food-item-text-price">LKR 300.00</p>
+                        <div class="food-item-column">
+                            <div class="food-item-img">
+                                <img class="hg-food-item" src="./assets/images/cake-factory/sweets-2.png">
+                            </div>
+                            <div class="food-item-text">
+                                <p class="food-item-text-header">Halwa</p>
+                                <p class="food-item-text-body">One piece of sweet halwa.</p>
+                                <p class="food-item-text-price">LKR 100.00</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="food-item-column">
-                        <div class="food-item-img">
-                            <img class="hg-food-item" src="./assets/images/cake-factory/drinks-4.png">
+                </div>
+                <div class="category" id="category-drinks">
+                    <h2 class="category-header">Drinks</h2>
+                    <div class="row" id="food-item-row">
+                        <div class="food-item-column">
+                            <div class="food-item-img">
+                                <img class="hg-food-item" src="./assets/images/cake-factory/drinks-1.png">
+                            </div>
+                            <div class="food-item-text">
+                                <p class="food-item-text-header">Strawberry Milkshake</p>
+                                <p class="food-item-text-body">250ml of strawberry milkshake.</p>
+                                <p class="food-item-text-price">LKR 300.00</p>
+                            </div>
                         </div>
-                        <div class="food-item-text">
-                            <p class="food-item-text-header">Oreo Milkshake</p>
-                            <p class="food-item-text-body">250ml of oreo milkshake.</p>
-                            <p class="food-item-text-price">LKR 400.00</p>
+                        <div class="food-item-column">
+                            <div class="food-item-img">
+                                <img class="hg-food-item" src="./assets/images/cake-factory/drinks-2.png">
+                            </div>
+                            <div class="food-item-text">
+                                <p class="food-item-text-header">Vanilla Milkshake</p>
+                                <p class="food-item-text-body">250ml of vanilla milkshake.</p>
+                                <p class="food-item-text-price">LKR 250.00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="food-item-row">
+                        <div class="food-item-column">
+                            <div class="food-item-img">
+                                <img class="hg-food-item" src="./assets/images/cake-factory/drinks-3.png">
+                            </div>
+                            <div class="food-item-text">
+                                <p class="food-item-text-header">Chocolate Milkshake</p>
+                                <p class="food-item-text-body">250ml of chocolate milkshake.</p>
+                                <p class="food-item-text-price">LKR 300.00</p>
+                            </div>
+                        </div>
+                        <div class="food-item-column">
+                            <div class="food-item-img">
+                                <img class="hg-food-item" src="./assets/images/cake-factory/drinks-4.png">
+                            </div>
+                            <div class="food-item-text">
+                                <p class="food-item-text-header">Oreo Milkshake</p>
+                                <p class="food-item-text-body">250ml of oreo milkshake.</p>
+                                <p class="food-item-text-price">LKR 400.00</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -262,8 +274,7 @@
                 <a class="hg-button" id="logo-btn" href="./index.html" target="_self" class="ui-btn">
                     <img src="./assets/images/Logo.png" height="62.56px"></a>
                 <a id="hg-icon-btn-right-close" href="#Home" data-transition="slide" class="ui-btn"
-                    data-direction="reverse">
-                    <i data-feather="x"></i></a>
+                    data-direction="reverse"><i data-feather="x"></i></a>
             </div>
         </div>
 
@@ -276,7 +287,7 @@
                 <a href="./orders.html" target="_self" class="ui-btn" id="hg-menu-btn">Orders</a>
                 <a href="#" class="ui-btn" id="hg-menu-btn">Favorites</a>
                 <a href="#" target="_self" class="ui-btn" id="hg-menu-btn">QR Scanner</a>
-                <a href="./about-us.html" class="ui-btn" id="hg-menu-btn">About Us</a>
+                <a href="./about-us.html" target="_self" class="ui-btn" id="hg-menu-btn">About Us</a>
                 <a href="#" class="ui-btn" id="hg-menu-btn">Sign In</a>
             </div>
         </div>
@@ -298,7 +309,7 @@
                 <a href="#" class="ui-btn" id="hg-menu-btn">Bakery</a>
                 <a href="#" class="ui-btn" id="hg-menu-btn">Italian</a>
                 <a href="#" class="ui-btn" id="hg-menu-btn">Burgers</a>
-                <a href="./desserts.html" class="ui-btn" id="hg-menu-btn">Desserts</a>
+                <a href="./desserts.html" target="_self" class="ui-btn" id="hg-menu-btn">Desserts</a>
                 <a href="#" class="ui-btn" id="hg-menu-btn">Drinks</a>
             </div>
         </div>
@@ -306,67 +317,7 @@
 </body>
 
 <script>
-    feather.replace()
-
-    function accordion(section, heading, list) {
-        $(section).each(function () {
-            var act = 'active',
-                actClass = '.active',
-                that = $(this);
-
-            function tglH() {
-                that.find(list).slideToggle(250);
-            }
-
-            function open(click) {
-                $(click).toggleClass('plus minus');
-                tglH();
-                that.find(list).addClass(act);
-            }
-
-            function close(click) {
-                $(click).toggleClass('minus plus');
-                tglH();
-                that.find(list).removeClass(act);
-            }
-
-            if (that.find(list).length == 0) {
-                $(this).find(heading).removeClass('plus').addClass('no-sub');
-            } else {
-                $(this).find(heading).click(function (e) {
-                    e.preventDefault();
-                });
-            }
-
-            $(this).find(heading).click(function () {
-                if ($(this).hasClass('minus')) {
-                    // close this menu
-                    close(this);
-                    that.find(list).removeClass(act);
-                } else if ($(this).hasClass('plus')) {
-                    if ($(heading).hasClass('minus')) {
-                        $(heading).each(function () {
-                            if (!$(this).hasClass('no-sub')) {
-                                $(this).removeClass('minus').addClass('plus');
-                            }
-                        })
-                        $(section).each(function () {
-                            if ($(this).find(list).hasClass(act)) {
-                                $(actClass).slideToggle(250);
-                                $(this).find(list).removeClass(act);
-                            }
-                        });
-                        // open this menu
-                        open(this);
-                    } else if ($(this).hasClass('plus')) {
-                        // open this menu
-                        open(this);
-                    }
-                }
-            })
-        })
-    }
-    accordion('.nav-item', '.nav-item-inner-heading', '.nav-sub-list');
+    feather.replace();
 </script>
 
 </html>
