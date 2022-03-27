@@ -1,5 +1,5 @@
-# Home Gournet
-A web appplication for delivering home-cooked meals.
+# Home Gourmet
+A web application for delivering home-cooked meals.
 
 ## Table of Contents
 - [Tested Browsers](#tested-browsers)
@@ -11,20 +11,20 @@ A web appplication for delivering home-cooked meals.
 - [License](#license)
 
 ## Tested Browsers
-* Firefox (Preferred)
+* Firefox
 * Chrome
 
 ## Tested Devices
-* iPad – 810 x 1080 (Preferred)
+* iPad – 810 x 1080
 * iPad Air – 810 x 1180
 * iPad Pro (11-inch) – 834 x1194
 
 ## Features
 * Has three restaurant (Point Of Interest - POI) pages.
-* Add restaurant ratings in orders page.
-* Display restaurant ratings in restaurant-information page.
+* Add restaurant ratings on the orders page.
+* Display restaurant ratings on the restaurant-information page.
 * Display location of the restaurant in Google Maps.
-* View video about the web application in about-us page.
+* View a video about the web application on the about-us page.
 * Supports only iPad portrait orientation.
 
 ## Demo
